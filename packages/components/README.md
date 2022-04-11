@@ -1,9 +1,9 @@
-# @formily/antdv-x3
+# @ksws03825/antdv-x3
 
-> Formily Component Adaptor
+> Formily Component Adaptor (ant-design-vue:) vue3
 
 ## Install
 
 ```bash
-npm install formily-antdv-x3 --save
+npm install @ksws03825/antdv-x3 --save
 ```

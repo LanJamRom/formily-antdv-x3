@@ -16,7 +16,7 @@
     "downlevelIteration": true,
     "baseUrl": ".",
     "paths": {
-      "@ksws03825/*": ["packages/*/src"]
+      "@ksws03825/antdv-x3": ["packages/components/src"]
     }
     // "types": ["vite/client"]
   }
