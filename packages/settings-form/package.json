@@ -50,5 +50,6 @@
   },
   "devDependencies": {
     "vue": "^3.2.24"
-  }
+  },
+  "gitHead": "b1786cc2e241527aa87e9afec666361834155ef4"
 }

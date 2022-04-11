@@ -62,5 +62,6 @@
     "ts-import-plugin": "^2.0.0",
     "ttypescript": "^1.5.13",
     "vue-types": "^4.1.1"
-  }
+  },
+  "gitHead": "b1786cc2e241527aa87e9afec666361834155ef4"
 }
