@@ -1,5 +1,5 @@
 {
-  "name": "@formily/element-plus-renderer",
+  "name": "@lr/antdv-x3-renderer",
   "version": "1.0.0-beta.1",
   "license": "MIT",
   "main": "lib",
@@ -8,9 +8,9 @@
     "npm": ">=3.0.0"
   },
   "module": "esm",
-  "umd:main": "dist/formily.element-plus-renderer.umd.production.js",
-  "unpkg": "dist/formily.element-plus-renderer.umd.production.js",
-  "jsdelivr": "dist/formily.element-plus-renderer.umd.production.js",
+  "umd:main": "dist/lr.antdv-x3-renderer.umd.production.js",
+  "unpkg": "dist/lr.antdv-x3-renderer.umd.production.js",
+  "jsdelivr": "dist/lr.antdv-x3-renderer.umd.production.js",
   "jsnext:main": "esm",
   "sideEffects": [
     "dist/*",
@@ -26,12 +26,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/formilyjs/element-plus.git"
+    "url": "git+https://github.com/LanJamRom/formily-antdv-x3.git"
   },
   "bugs": {
-    "url": "https://github.com/formilyjs/element-plus/issues"
+    "url": "https://github.com/LanJamRom/formily-antdv-x3/issues"
   },
-  "homepage": "https://github.com/formilyjs/element-plus#readme",
+  "homepage": "https://github.com/LanJamRom/formily-antdv-x3#readme",
   "publishConfig": {
     "access": "public"
   },

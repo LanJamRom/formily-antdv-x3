@@ -18,7 +18,7 @@
 
 ## 概要
 
-这是一个结合了 Formily & Element Plus的超酷组件库.
+这是一个结合了 Formily & Element Plus 的超酷组件库.
 
 ## 特性
 
@@ -50,7 +50,7 @@ https://element-plus.formilyjs.org
 ## 贡献者
 
 This project exists thanks to all the people who contribute.
-<a href="https://github.com/formilyjs/element-plus/graphs/contributors"><img src="https://contrib.rocks/image?repo=formilyjs/element-plus" /></a>
+<a href="https://github.com/LanJamRom/formily-antdv-x3/graphs/contributors"><img src="https://contrib.rocks/image?repo=formilyjs/element-plus" /></a>
 
 ## LICENSE
 
