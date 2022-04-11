@@ -1,7 +1,7 @@
 import { IBuilderConfig } from '@formily/template'
 
 export const BuilderConfig: IBuilderConfig = {
-  targetLibName: 'element-plus',
+  targetLibName: 'ant-design-vue',
   targetLibCjsDir: 'lib',
   targetLibEsDir: 'es',
 }
