@@ -1,5 +1,5 @@
 {
-  "name": "@lr/antdv-x3",
+  "name": "@ksws03825/antdv-x3",
   "version": "1.0.0-beta.3",
   "license": "MIT",
   "main": "lib",
@@ -8,9 +8,9 @@
     "npm": ">=3.0.0"
   },
   "module": "esm",
-  "umd:main": "dist/lr.antdv-x3.umd.production.js",
-  "unpkg": "dist/lr.antdv-x3.umd.production.js",
-  "jsdelivr": "dist/lr.antdv-x3.umd.production.js",
+  "umd:main": "dist/ksws03825.antdv-x3.umd.production.js",
+  "unpkg": "dist/ksws03825.antdv-x3.umd.production.js",
+  "jsdelivr": "dist/ksws03825.antdv-x3.umd.production.js",
   "jsnext:main": "esm",
   "sideEffects": [
     "dist/*",
@@ -63,5 +63,5 @@
     "ttypescript": "^1.5.13",
     "vue-types": "^4.1.1"
   },
-  "gitHead": "b1786cc2e241527aa87e9afec666361834155ef4"
+  "gitHead": "10fe51852bffb8978fa4589b474aa2ccb82ab574"
 }
