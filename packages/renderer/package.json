@@ -1,6 +1,6 @@
 {
   "name": "@ksws03825/antdv-x3-renderer",
-  "version": "1.0.0-beta.5",
+  "version": "1.0.0-beta.6",
   "license": "MIT",
   "main": "lib",
   "types": "lib/index.d.ts",
