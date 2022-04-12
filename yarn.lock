@@ -614,14 +614,6 @@
     "@formily/shared" "2.0.18"
     "@formily/validator" "2.0.18"
 
-"@formily/grid@2.0.14":
-  version "2.0.14"
-  resolved "https://registry.yarnpkg.com/@formily/grid/-/grid-2.0.14.tgz#625e158f16c9a8b113895d931ceb571c544e6f21"
-  integrity sha512-tnQuPM5y8S1GSno/WE6VNpuyhcQTEKB3jJPKzgrc9AJG5CuUsskonVYOrCAjKlPRsS6/tpJqLwYunJGLg4Py2g==
-  dependencies:
-    "@formily/reactive" "2.0.14"
-    "@juggle/resize-observer" "^3.3.1"
-
 "@formily/grid@2.0.18":
   version "2.0.18"
   resolved "https://registry.yarnpkg.com/@formily/grid/-/grid-2.0.18.tgz#65f628001a0ece52f407341d1f2abb45e0f96150"
@@ -12788,11 +12780,6 @@ vue-loader@^16.8.3:
     chalk "^4.1.0"
     hash-sum "^2.0.0"
     loader-utils "^2.0.0"
-
-vue-slicksort@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/vue-slicksort/-/vue-slicksort-1.2.0.tgz#2bc1da2facc4350279ebc3866acea6ee5fe681ef"
-  integrity sha512-k1324l+AnYy6MrpySN7PYL165z2EkvZmMe+BS7H/EugzS8IrZYRtoqa3QxSSWB34C7cplV1hj3c+7peKpxpYxg==
 
 vue-template-es2015-compiler@^1.9.0:
   version "1.9.1"
