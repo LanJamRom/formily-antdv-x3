@@ -4,11 +4,11 @@ import { onMounted, ref } from 'vue'
 
 interface IProps {
   breakpoints?: number[]
-  layout?: 'vertical' | 'horizontal' | 'inline' | ('vertical' | 'horizontal' | 'inline')[]
+  layout?: 'vertical' | 'horizontal' | 'inline'
   labelCol?: number | number[]
   wrapperCol?: number | number[]
-  labelAlign?: 'right' | 'left' | ('right' | 'left')[]
-  wrapperAlign?: 'right' | 'left' | ('right' | 'left')[]
+  labelAlign?: 'right' | 'left'
+  wrapperAlign?: 'right' | 'left'
   [props: string]: any
 }
 
@@ -21,10 +21,7 @@ interface ICalculateProps {
 }
 
 interface IUseResponsiveFormLayout {
-  (
-    props: IProps,
-    refs: Record<string, any>
-  ): {
+  (props: IProps, refs: Record<string, any>): {
     props: Ref<IProps>
   }
 }
@@ -51,7 +48,15 @@ const factor = <T>(value: T | T[], breakpointIndex: number): T =>
 
 const calculateProps: ICalculateProps = (target, props) => {
   const { clientWidth } = target
-  const { breakpoints, layout, labelAlign, wrapperAlign, labelCol, wrapperCol, ...otherProps } = props
+  const {
+    breakpoints,
+    layout,
+    labelAlign,
+    wrapperAlign,
+    labelCol,
+    wrapperCol,
+    ...otherProps
+  } = props
   const breakpointIndex = calcBreakpointIndex(breakpoints, clientWidth)
 
   return {
@@ -60,11 +65,14 @@ const calculateProps: ICalculateProps = (target, props) => {
     wrapperAlign: factor(wrapperAlign, breakpointIndex),
     labelCol: factor(labelCol, breakpointIndex),
     wrapperCol: factor(wrapperCol, breakpointIndex),
-    ...otherProps
+    ...otherProps,
   }
 }
 
-export const useResponsiveFormLayout: IUseResponsiveFormLayout = (props, refs) => {
+export const useResponsiveFormLayout: IUseResponsiveFormLayout = (
+  props,
+  refs
+) => {
   const root = ref<Element>(null)
   const { breakpoints } = props
   if (!isArr(breakpoints)) {
@@ -94,6 +102,6 @@ export const useResponsiveFormLayout: IUseResponsiveFormLayout = (props, refs) =
   })
 
   return {
-    props: layoutProps
+    props: layoutProps,
   }
 }
