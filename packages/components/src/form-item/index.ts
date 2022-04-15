@@ -15,7 +15,7 @@ import { composeExport, resolveComponent } from '../__builtins__/shared'
 import { stylePrefix } from '../__builtins__/configs'
 import { Tooltip } from 'ant-design-vue'
 import ResizeObserver from 'resize-observer-polyfill'
-import { InfoCircleFilled } from '@ant-design/icons-vue'
+import { QuestionCircleOutlined } from '@ant-design/icons-vue'
 import { propTypes } from '../__builtins__/shared/propTypes'
 
 export type FormItemProps = {
@@ -312,7 +312,7 @@ export const FormBaseItem = defineComponent({
           return h(
             'span',
             {
-              class: `${prefixCls}-label-tooltip`,
+              class: `${prefixCls}-label-tooltip-icon`,
             },
             {
               default: () => [
@@ -329,13 +329,7 @@ export const FormBaseItem = defineComponent({
                     },
                   },
                   {
-                    default: () => [
-                      h(
-                        InfoCircleFilled,
-                        { class: `${prefixCls}-label-tooltip-icon` },
-                        {}
-                      ),
-                    ],
+                    default: () => [h(QuestionCircleOutlined, {}, {})],
                   }
                 ),
               ],

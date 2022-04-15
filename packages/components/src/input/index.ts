@@ -5,24 +5,28 @@ import { Input as AntInput } from 'ant-design-vue'
 import type { InputProps as AntInputProps } from 'ant-design-vue'
 
 const TransformElInput = transformComponent<AntInputProps>(AntInput, {
-  change: 'input'
+  change: 'input',
 })
 
-const InnerInput = connect(TransformElInput, mapProps({ readOnly: 'read-only' }), mapReadPretty(PreviewText.Input))
+const InnerInput = connect(
+  TransformElInput,
+  mapProps({ readOnly: 'readonly' }),
+  mapReadPretty(PreviewText.Input)
+)
 
 const TextArea = connect(
   InnerInput,
-  mapProps(props => {
+  mapProps((props) => {
     return {
       ...props,
-      type: 'textarea'
+      type: 'textarea',
     }
   }),
   mapReadPretty(PreviewText.Input)
 )
 
 export const Input = composeExport(InnerInput, {
-  TextArea
+  TextArea,
 })
 
 export default Input
