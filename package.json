@@ -94,7 +94,6 @@
       "git add"
     ]
   },
-  "dependencies": {},
   "peerDependencies": {
     "vue": "^3.2.24"
   }

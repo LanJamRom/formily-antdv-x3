@@ -321,11 +321,21 @@ export const FormBaseItem = defineComponent({
                   {
                     props: {
                       placement: 'top',
-                      title: () => [resolveComponent(tooltip)],
+                      title: h(
+                        'div',
+                        {},
+                        { default: () => [resolveComponent(tooltip)] }
+                      ),
                     },
                   },
                   {
-                    default: () => [h(InfoCircleFilled, {}, {})],
+                    default: () => [
+                      h(
+                        InfoCircleFilled,
+                        { class: `${prefixCls}-label-tooltip-icon` },
+                        {}
+                      ),
+                    ],
                   }
                 ),
               ],
