@@ -1,4 +1,4 @@
-import { h, VueComponent } from '@formily/vue'
+import { h } from '@formily/vue'
 import type { SpaceProps as AntSpaceProps } from 'ant-design-vue'
 import { useFormLayout } from '../form-layout'
 import type { VNode } from 'vue'
@@ -10,8 +10,8 @@ const spaceSize = {
   large: 24
 }
 
-export const Space = defineComponent<AntSpaceProps>({
-  setup(props, { slots }) {
+export const Space = defineComponent({
+  setup(props: AntSpaceProps, { slots }) {
     const layout = useFormLayout()
 
     return () => {
@@ -74,6 +74,6 @@ export const Space = defineComponent<AntSpaceProps>({
       )
     }
   }
-}) as VueComponent
+})
 
 export default Space
