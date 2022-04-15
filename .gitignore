@@ -29,3 +29,4 @@ doc-site
 .lint-report.log
 .temp
 .cache
+examples
