@@ -13,9 +13,14 @@ import { connect, mapProps, h } from '@formily/vue'
 import { useFormLayout, FormLayoutShallowContext } from '../form-layout'
 import { composeExport, resolveComponent } from '../__builtins__/shared'
 import { stylePrefix } from '../__builtins__/configs'
-import { Tooltip } from 'ant-design-vue'
+import { Popover, Tooltip } from 'ant-design-vue'
 import ResizeObserver from 'resize-observer-polyfill'
-import { QuestionCircleOutlined } from '@ant-design/icons-vue'
+import {
+  CheckCircleOutlined,
+  CloseCircleOutlined,
+  ExclamationCircleOutlined,
+  QuestionCircleOutlined,
+} from '@ant-design/icons-vue'
 import { propTypes } from '../__builtins__/shared/propTypes'
 
 export type FormItemProps = {
@@ -104,9 +109,9 @@ const useOverflow = (containerRef: Ref<HTMLElement>) => {
 }
 
 const ICON_MAP = {
-  error: () => h('i', { class: 'el-icon-circle-close' }, {}),
-  success: () => h('i', { class: 'el-icon-circle-check' }, {}),
-  warning: () => h('i', { class: 'el-icon-warning-outline' }, {}),
+  error: () => h(CloseCircleOutlined, {}, {}),
+  success: () => h(CheckCircleOutlined, {}, {}),
+  warning: () => h(ExclamationCircleOutlined, {}, {}),
 }
 
 export const FormBaseItem = defineComponent({
@@ -223,17 +228,11 @@ export const FormBaseItem = defineComponent({
       const formatChildren =
         feedbackLayout === 'popover'
           ? h(
-              'el-popover',
+              Popover,
               {
-                props: {
-                  disabled: !feedbackText,
-                  placement: 'top',
-                },
-              },
-              {
-                reference: () =>
-                  h('div', {}, { default: () => slots.default?.() }),
-                default: () => [
+                disabled: !feedbackText,
+                placement: 'top',
+                title: () => [
                   h(
                     'div',
                     {
@@ -256,7 +255,10 @@ export const FormBaseItem = defineComponent({
                     }
                   ),
                 ],
-              }
+                content: () =>
+                  h('div', {}, { default: () => slots.default?.() }),
+              },
+              {}
             )
           : slots.default?.()
 
