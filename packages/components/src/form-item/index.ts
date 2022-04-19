@@ -21,7 +21,6 @@ import {
   ExclamationCircleOutlined,
   QuestionCircleOutlined,
 } from '@ant-design/icons-vue'
-import { propTypes } from '../__builtins__/shared/propTypes'
 
 export type FormItemProps = {
   className?: string
@@ -46,17 +45,12 @@ export type FormItemProps = {
   size?: 'small' | 'default' | 'large'
   extra?: string
   feedbackText?: string | Component
-  feedbackLayout?: 'loose' | 'terse' | 'popover' | 'none' | (string & unknown)
-  feedbackStatus?:
-    | 'error'
-    | 'warning'
-    | 'success'
-    | 'pending'
-    | (string & unknown)
+  feedbackLayout?: 'loose' | 'terse' | 'popover' | 'none' | (string & {})
+  feedbackStatus?: 'error' | 'warning' | 'success' | 'pending' | (string & {})
   tooltipLayout?: 'icon' | 'text'
   feedbackIcon?: string | Component
   asterisk?: boolean
-  gridSpan?: number
+  gridSpan?: number | string
   bordered?: boolean
   inset?: boolean
 }
@@ -116,42 +110,36 @@ const ICON_MAP = {
 
 export const FormBaseItem = defineComponent({
   props: {
-    className: propTypes.string,
-    required: propTypes.bool,
-    layout: propTypes.string,
-    label: propTypes.any,
-    colon: propTypes.bool,
-    tooltip: propTypes.any,
-    labelStyle: propTypes.style,
-    labelAlign: propTypes.oneOf(['left', 'right']).def('right'),
-    labelWrap: propTypes.bool.def(false),
-    labelWidth: propTypes.number,
-    wrapperWidth: propTypes.number,
-    labelCol: propTypes.number,
-    wrapperCol: propTypes.number,
-    wrapperAlign: propTypes.oneOf(['left', 'right']),
-    wrapperWrap: propTypes.bool.def(false),
-    wrapperStyle: propTypes.style,
-    fullness: propTypes.bool.def(false),
-    addonBefore: propTypes.any,
-    addonAfter: propTypes.any,
-    size: propTypes.oneOf(['small', 'default', 'middle', undefined]),
-    extra: propTypes.VNodeChild,
-    feedbackText: propTypes.VNodeChild,
-    feedbackLayout: propTypes.oneOf(['loose', 'terse', 'popover', undefined]),
-    tooltipLayout: propTypes.oneOf(['icon', 'text']).def('icon'),
-    feedbackStatus: propTypes.oneOf([
-      'error',
-      'warning',
-      'success',
-      'pending',
-      undefined,
-    ]),
-    feedbackIcon: propTypes.string,
-    asterisk: propTypes.bool,
-    gridSpan: propTypes.number,
-    bordered: propTypes.bool.def(true),
-    inset: propTypes.bool.def(false),
+    className: {},
+    required: {},
+    label: {},
+    colon: {},
+    layout: {},
+    tooltip: {},
+    labelStyle: {},
+    labelAlign: {},
+    labelWrap: {},
+    labelWidth: {},
+    wrapperWidth: {},
+    labelCol: {},
+    wrapperCol: {},
+    wrapperAlign: {},
+    wrapperWrap: {},
+    wrapperStyle: {},
+    fullness: {},
+    addonBefore: {},
+    addonAfter: {},
+    size: {},
+    extra: {},
+    feedbackText: {},
+    feedbackLayout: {},
+    tooltipLayout: {},
+    feedbackStatus: {},
+    feedbackIcon: {},
+    asterisk: {},
+    gridSpan: {},
+    bordered: { default: true },
+    inset: { default: false },
   },
   setup(props, { slots }) {
     const ctx = getCurrentInstance()
