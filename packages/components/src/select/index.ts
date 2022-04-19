@@ -7,12 +7,14 @@ export const Select = connect(
   mapProps(
     {
       dataSource: 'options',
-      loading: true
+      loading: true,
+      readOnly: 'readonly',
     },
     (props, field) => {
       return {
         ...props,
-        loading: field?.['loading'] || field?.['validating'] ? true : props.loading
+        loading:
+          field?.['loading'] || field?.['validating'] ? true : props.loading,
       }
     }
   ),
