@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable vue/require-prop-types */
 import type { Ref, Component } from 'vue'
 import {
@@ -501,62 +502,54 @@ export const FormBaseItem = defineComponent({
 
 const Item = connect(
   FormBaseItem,
-  mapProps(
-    { validateStatus: true, title: 'label', required: true },
-    (props, field) => {
-      if (isVoidField(field)) return props
-      if (!field) return props
-      const takeMessage = () => {
-        const split = (messages: any[]) => {
-          return messages.reduce((buf, text, index) => {
-            if (!text) return buf
-            return index < messages.length - 1
-              ? buf.concat([text, ', '])
-              : buf.concat([text])
-          }, [])
-        }
-        if (field.validating) return
-        if (props.feedbackText) return props.feedbackText
-        if (field.selfErrors.length) return split(field.selfErrors)
-        if (field.selfWarnings.length) return split(field.selfWarnings)
-        if (field.selfSuccesses.length) return split(field.selfSuccesses)
-      }
-      const errorMessages = takeMessage()
+  mapProps((props, field) => {
+    if (isVoidField(field))
       return {
-        feedbackText: Array.isArray(errorMessages)
-          ? errorMessages.join(', ')
-          : errorMessages,
+        label: field.title || props.label,
+        asterisk: props.asterisk,
         extra: props.extra || field.description,
       }
-    },
-    (props, field) => {
-      if (isVoidField(field)) return props
-      if (!field) return props
-      return {
-        feedbackStatus:
-          field.validateStatus === 'validating'
-            ? 'pending'
-            : (Array.isArray(field.decorator) &&
-                field.decorator[1]?.feedbackStatus) ||
-              field.validateStatus,
+    if (!field) return props
+    const takeFeedbackStatus = () => {
+      if (field.validating) return 'pending'
+      return field.decoratorProps.feedbackStatus || field.validateStatus
+    }
+    const takeMessage = () => {
+      const split = (messages: any[]) => {
+        return messages.reduce((buf, text, index) => {
+          if (!text) return buf
+          return index < messages.length - 1
+            ? buf.concat([text, ', '])
+            : buf.concat([text])
+        }, [])
       }
-    },
-    (props, field) => {
-      if (isVoidField(field)) return props
-
-      if (!field) return props
-      let asterisk = false
+      if (field.validating) return
+      if (props.feedbackText) return props.feedbackText
+      if (field.selfErrors.length) return split(field.selfErrors)
+      if (field.selfWarnings.length) return split(field.selfWarnings)
+      if (field.selfSuccesses.length) return split(field.selfSuccesses)
+    }
+    const takeAsterisk = () => {
       if (field.required && field.pattern !== 'readPretty') {
-        asterisk = true
+        return true
       }
       if ('asterisk' in props) {
-        asterisk = props.asterisk
+        return props.asterisk
       }
-      return {
-        asterisk,
-      }
+      return false
     }
-  )
+    const errorMessages = takeMessage()
+    return {
+      validateStatus: field.required,
+      label: props.label || field.title,
+      feedbackStatus: takeFeedbackStatus(),
+      feedbackText: Array.isArray(errorMessages)
+        ? errorMessages.join(', ')
+        : errorMessages,
+      asterisk: takeAsterisk(),
+      extra: props.extra || field.description,
+    }
+  })
 )
 
 export const FormItem = composeExport(Item, {
