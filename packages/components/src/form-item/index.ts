@@ -1,3 +1,4 @@
+/* eslint-disable vue/require-prop-types */
 import type { Ref, Component } from 'vue'
 import {
   ref,
@@ -168,7 +169,7 @@ export const FormBaseItem = defineComponent({
         colon = deepLayout.colon ?? true,
         layout = deepLayout.layout ?? 'horizontal',
         tooltip,
-        labelStyle = {},
+        labelStyle = {} as any,
         labelWrap = deepLayout.labelWrap ?? false,
         labelWidth = deepLayout.labelWidth,
         wrapperWidth = deepLayout.wrapperWidth,
@@ -176,7 +177,7 @@ export const FormBaseItem = defineComponent({
         wrapperCol = deepLayout.wrapperCol,
         wrapperAlign = deepLayout.wrapperAlign ?? 'left',
         wrapperWrap = deepLayout.wrapperWrap,
-        wrapperStyle = {},
+        wrapperStyle = {} as any,
         fullness = deepLayout.fullness,
         addonBefore,
         addonAfter,
@@ -233,7 +234,9 @@ export const FormBaseItem = defineComponent({
                     {
                       default: () => [
                         feedbackStatus &&
-                        ['error', 'success', 'warning'].includes(feedbackStatus)
+                        ['error', 'success', 'warning'].includes(
+                          feedbackStatus as any
+                        )
                           ? ICON_MAP[
                               feedbackStatus as 'error' | 'success' | 'warning'
                             ]()
