@@ -1,11 +1,19 @@
 import { isArr, isFn } from '@formily/shared'
-import moment from 'moment'
+import dayjs from 'dayjs'
 
 export const momentable = (value: any, format?: string) => {
-  return Array.isArray(value) ? value.map(val => moment(val, format)) : value ? moment(value, format) : value
+  return Array.isArray(value)
+    ? value.map((val) => dayjs(val, format))
+    : value
+    ? dayjs(value, format)
+    : value
 }
 
-export const formatMomentValue = (value: any, format: any, placeholder?: string): string | string[] => {
+export const formatMomentValue = (
+  value: any,
+  format: any,
+  placeholder?: string
+): string | string[] => {
   const formatDate = (date: any, format: any, i = 0) => {
     if (!date) return placeholder
     if (isArr(format)) {

@@ -1,4 +1,4 @@
-import { connect, mapProps, mapReadPretty, VueComponent } from '@formily/vue'
+import { connect, mapProps, mapReadPretty } from '@formily/vue'
 import { Select as AntdSelect } from 'ant-design-vue'
 import { PreviewText } from '../preview-text'
 
@@ -19,6 +19,6 @@ export const Select = connect(
     }
   ),
   mapReadPretty(PreviewText.Select)
-) as VueComponent
+) as any
 
 export default Select

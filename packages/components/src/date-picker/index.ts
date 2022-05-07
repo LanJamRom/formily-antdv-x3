@@ -3,6 +3,7 @@ import { DatePicker as AntdDatePicker } from 'ant-design-vue'
 import type { DatePickerProps as AntdDatePickerProps } from 'ant-design-vue'
 import { formatMomentValue, composeExport } from '../__builtins__'
 import { PreviewText } from '../preview-text'
+import dayjs from 'dayjs'
 
 const mapDateFormat = function () {
   const getDefaultFormat = (props: AntdDatePickerProps) => {
@@ -24,13 +25,11 @@ const mapDateFormat = function () {
       ...props,
       format: format,
       valueFormat: props.valueFormat || getDefaultFormat(props),
-      on: {
-        change: (value: moment.Moment | moment.Moment[]) => {
-          if (onChange) {
-            onChange(formatMomentValue(value, format))
-          }
+      onChange: (value: dayjs.Dayjs | dayjs.Dayjs[]) => {
+        if (onChange) {
+          onChange(formatMomentValue(value, format))
         }
-      }
+      },
     }
   }
 }
@@ -54,7 +53,7 @@ export const _MonthPicker = connect(AntdDatePicker.MonthPicker) as VueComponent
 export const DatePicker = composeExport(_DatePicker, {
   RangePicker: _RangePicker,
   WeekPicker: _WeekPicker,
-  MonthPicker: _MonthPicker
+  MonthPicker: _MonthPicker,
 })
 
 export default DatePicker
