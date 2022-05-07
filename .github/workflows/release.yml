@@ -20,8 +20,10 @@ jobs:
           yarn -v
           yarn --ignore-engines
           yarn build
+          yarn test:prod
         env:
           NODE_OPTIONS: --max_old_space_size=4096
+          REGISTRY: https://registry.npmjs.org
       - uses: janrywang/github-tag-release@main
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
